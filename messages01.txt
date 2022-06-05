@@ -1,0 +1,13 @@
+user Ze ze@ua.pt +351234234234
+user Rita rita@ua.pt +351234370000
+user Joao joao@ua.pt +351234370111
+user Maria maria@ua.pt +351234370500
+user Ana ana@ua.pt +351234370555
+email maria@ua.pt ana@ua.pt The PpO challenge is today!
+email ana@ua.pt maria@ua.pt I am ready!
+mobile +351234370000 +351234370111 The PpO challenge is indeed today!
+email ana@ua.pt ze@ua.pt The content is what I studied.
+mobile +351234370555 +351234370500 I love programming.
+email ze@ua.pt maria@ua.pt Classes and objects...
+mobile +351234370000 +351234234234 How was the challenge?
+mobile +351234370555 +351234234234 I love programming.
