@@ -15,26 +15,33 @@
 
 class MsgManager {
 
- private:
+private:
     std::map<std::string, User> users_;
     std::vector<EmailMsg *> emails_;
     std::vector<TextMsg *> texts_;
 
 public:
+    //Constructors
     MsgManager() = default;
 
+    //Getters
+    [[nodiscard]] User GetUser(std::string& mobile) const;
+
+    //Methods
+
     // Add text and email messages, and users.
-    void AddEmailMsg(EmailMsg *message);
-    void AddTextMsg(TextMsg *message);
-    void AddUser(const User &user);
+    void AddEmailMsg(EmailMsg* message);
+    void AddTextMsg(TextMsg* message);
+    void AddUser(const User& user);
 
     // Save on file the collected data.
-    void SaveToFile(const std::string &filename);
+    void SaveToFile(const std::string& filename);
 
     // Statistic methods.
-    double TextAverageSize() const;
+    [[nodiscard]] double TextAverageSize() const;
 
-    friend std::ostream &operator<<(std::ostream &os, const MsgManager &manager);
+    //Operators
+    friend std::ostream &operator<<(std::ostream& os, const MsgManager& manager);
 
 };
 

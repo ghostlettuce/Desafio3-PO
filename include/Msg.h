@@ -5,16 +5,23 @@
 #include <iostream>
 
 class Msg {
- private:
+private:
     std::string body_;
 
- public:
+public:
+    //Operators
     Msg() = default;
-    Msg(const std::string &body);
-    const std::string &GetBody() const;
-    void SetBody(const std::string &body);
-    friend std::ostream &operator<<(std::ostream &os, const Msg &msg);
-    friend std::istream &operator>>(std::istream &os, Msg &msg);
+    Msg(const std::string& body);
+
+    //Getters
+    [[nodiscard]] const std::string& GetBody() const;
+
+    //Setters
+    void SetBody(const std::string& body);
+
+    //Operators
+    friend std::ostream& operator<<(std::ostream& os, const Msg& msg);
+    friend std::istream& operator>>(std::istream& os, Msg& msg);
 
 };
 

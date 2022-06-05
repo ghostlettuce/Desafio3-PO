@@ -2,11 +2,12 @@
 
 int TextMsg::number_of_texts_ = 50;
 
+//Constructors
 TextMsg::TextMsg() {
   id_ = number_of_texts_++;
 }
 
-TextMsg::TextMsg(const std::string &body, const std::string &src_phone_no, const std::string &dst_phone_no)
+TextMsg::TextMsg(const std::string& body, const std::string& src_phone_no, const std::string& dst_phone_no)
     : Msg(), src_phone_no_(src_phone_no), dst_phone_no_(dst_phone_no) {
   if (body.length() > TextMsg::kMessageMaxLength) {
     SetBody(body.substr(0, TextMsg::kMessageMaxLength));
@@ -16,33 +17,36 @@ TextMsg::TextMsg(const std::string &body, const std::string &src_phone_no, const
   id_ = number_of_texts_++;
 }
 
+//Getters
 int TextMsg::GetNumberOfTexts() {
   return number_of_texts_;
 }
 
-const std::string &TextMsg::GetSrcPhoneNo() const {
+const std::string& TextMsg::GetSrcPhoneNo() const {
   return src_phone_no_;
 }
 
-const std::string &TextMsg::GetDstPhoneNo() const {
+const std::string& TextMsg::GetDstPhoneNo() const {
   return dst_phone_no_;
 }
 
-void TextMsg::SetSrcPhoneNo(const std::string &src_phone_no) {
+//Setters
+void TextMsg::SetSrcPhoneNo(const std::string& src_phone_no) {
   src_phone_no_ = src_phone_no;
 }
 
-void TextMsg::SetDstPhoneNo(const std::string &dst_phone_no) {
+void TextMsg::SetDstPhoneNo(const std::string& dst_phone_no) {
   dst_phone_no_ = dst_phone_no;
 }
 
-std::ostream &operator<<(std::ostream &os, const TextMsg &msg) {
+//Operators
+std::ostream& operator<<(std::ostream& os, const TextMsg& msg) {
   os << "Text Msg " << msg.id_ << " from " << msg.src_phone_no_ << " to " << msg.dst_phone_no_ << " with content: "
-     << static_cast<const Msg &>(msg);
+     << static_cast<const Msg& >(msg);
   return os;
 }
 
-std::istream &operator>>(std::istream &is, TextMsg &msg) {
+std::istream& operator>>(std::istream& is, TextMsg& msg) {
   std::string message_body;
   is.ignore();
   std::getline(is, message_body);
