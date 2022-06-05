@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include  "include/User.h"
+#include "include/User.h"
 #include "include/Msg.h"
 #include "include/EmailMsg.h"
 #include "include/TextMsg.h"
@@ -39,13 +39,13 @@ int main() {
 
     User u;
     try{
-        u.setEmail("abc.xyz");
+        u.SetEmail("abc.xyz");
     }catch (invalid_argument const &e){
         cout << "ERROR: " << e.what() << endl << endl;
     }
 
     try{
-        u.setMobile("910123");
+        u.SetMobile("910123");
     }catch (invalid_argument const &e){
         cout << "ERROR: " << e.what() << endl << endl;
     }
@@ -64,12 +64,12 @@ int main() {
 
     cout << *m << endl; // old m pointer
 
-    Part2();
+    //Part2();
 
-    Part3();
+    //Part3();
 }
 
-void Part2(){
+/*void Part2(){
     cout << endl << "*** Part 2 ***" << endl << endl;
     MsgManager m;
 
@@ -107,4 +107,4 @@ void Part3(){
     m.loadLoadMessagesFromFile("../messages01.txt");
 
     cout << m << endl;
-}
+}*/

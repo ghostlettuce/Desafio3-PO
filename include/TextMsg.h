@@ -9,7 +9,7 @@
 class TextMsg : public Msg {
 
 private:
-    const static int kMessageMaxLength = 30;
+    const static int kMessageMaxLength = 40;
     static int number_of_texts_;
     int id_;
     std::string src_phone_no_;
@@ -24,11 +24,15 @@ public:
     [[nodiscard]] static int GetNumberOfTexts();
     [[nodiscard]] const std::string& GetSrcPhoneNo() const;
     [[nodiscard]] const std::string& GetDstPhoneNo() const;
-    [[nodiscard]] const kMsgType GetType() override;
+    [[nodiscard]] const MsgType GetType() override;
+    [[nodiscard]] static const int GetMaxLength();
     
     //Setters
     void SetSrcPhoneNo(const std::string& src_phone_no);
     void SetDstPhoneNo(const std::string& dst_phone_no);
+
+    //Methods
+
     
     //Operators
     friend std::ostream& operator<<(std::ostream& os, const TextMsg& msg);

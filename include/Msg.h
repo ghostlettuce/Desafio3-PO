@@ -4,20 +4,21 @@
 #include <string>
 #include <iostream>
 
-enum kMsgType {email, mobile};
-
 class Msg {
 private:
     std::string body_;
 
 public:
+    //Attributes
+    enum MsgType {Mobile, Email};
+
     //Operators
     Msg() = default;
     explicit Msg(const std::string& body);
 
     //Getters
     [[nodiscard]] const std::string& GetBody() const;
-    [[nodiscard]] virtual const kMsgType GetType() = 0;
+    [[nodiscard]] virtual const MsgType GetType() = 0;
 
     //Setters
     void SetBody(const std::string& body);

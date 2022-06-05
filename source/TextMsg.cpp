@@ -1,6 +1,6 @@
 #include "../include/TextMsg.h"
 
-int TextMsg::number_of_texts_ = 50;
+int TextMsg::number_of_texts_ = 100;
 
 //Constructors
 TextMsg::TextMsg() {
@@ -9,12 +9,9 @@ TextMsg::TextMsg() {
 
 TextMsg::TextMsg(const std::string& body, const std::string& src_phone_no, const std::string& dst_phone_no)
     : Msg(), src_phone_no_(src_phone_no), dst_phone_no_(dst_phone_no) {
-  if (body.length() > TextMsg::kMessageMaxLength) {
-    SetBody(body.substr(0, TextMsg::kMessageMaxLength));
-  } else {
+
     SetBody(body);
-  }
-  id_ = number_of_texts_++;
+    id_ = number_of_texts_++;
 }
 
 //Getters
@@ -30,8 +27,12 @@ const std::string& TextMsg::GetDstPhoneNo() const {
   return dst_phone_no_;
 }
 
-const kMsgType TextMsg::GetType() {
-    return mobile;
+const Msg::MsgType TextMsg::GetType() {
+    return Mobile;
+}
+
+const int TextMsg::GetMaxLength(){
+    return kMessageMaxLength;
 }
 
 //Setters

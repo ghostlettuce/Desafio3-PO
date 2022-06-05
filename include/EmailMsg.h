@@ -24,7 +24,7 @@ public:
     [[nodiscard]] int GetId() const;
     [[nodiscard]] const std::string& GetSrcMail() const;
     [[nodiscard]] const std::string& GetDstMail() const;
-    [[nodiscard]] const kMsgType GetType() override;
+    [[nodiscard]] const MsgType GetType() override;
 
     //Setters
     void SetSrcMail(const std::string& src_mail);

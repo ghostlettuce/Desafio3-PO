@@ -34,8 +34,8 @@ const std::string& EmailMsg::GetDstMail() const {
   return dst_mail_;
 }
 
-const kMsgType EmailMsg::GetType() {
-    return email;
+const Msg::MsgType EmailMsg::GetType() {
+    return Email;
 }
 
 //Setters
