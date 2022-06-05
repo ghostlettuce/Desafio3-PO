@@ -16,7 +16,7 @@ private:
 public:
     //Constructors
     EmailMsg();
-    EmailMsg(const std::string& body);
+    explicit EmailMsg(const std::string& body);
     EmailMsg(const std::string& body, const std::string& src_mail, const std::string& dst_mail);
 
     //Getters
@@ -24,6 +24,7 @@ public:
     [[nodiscard]] int GetId() const;
     [[nodiscard]] const std::string& GetSrcMail() const;
     [[nodiscard]] const std::string& GetDstMail() const;
+    [[nodiscard]] const kMsgType GetType() override;
 
     //Setters
     void SetSrcMail(const std::string& src_mail);

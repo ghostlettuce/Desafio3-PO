@@ -24,6 +24,7 @@ public:
     [[nodiscard]] static int GetNumberOfTexts();
     [[nodiscard]] const std::string& GetSrcPhoneNo() const;
     [[nodiscard]] const std::string& GetDstPhoneNo() const;
+    [[nodiscard]] const kMsgType GetType() override;
     
     //Setters
     void SetSrcPhoneNo(const std::string& src_phone_no);

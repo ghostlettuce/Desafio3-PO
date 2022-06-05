@@ -30,6 +30,10 @@ const std::string& TextMsg::GetDstPhoneNo() const {
   return dst_phone_no_;
 }
 
+const kMsgType TextMsg::GetType() {
+    return mobile;
+}
+
 //Setters
 void TextMsg::SetSrcPhoneNo(const std::string& src_phone_no) {
   src_phone_no_ = src_phone_no;
