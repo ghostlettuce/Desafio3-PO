@@ -1,4 +1,4 @@
-#include "MsgManager.h"
+#include "../include/MsgManager.h"
 
 void MsgManager::AddEmailMsg(EmailMsg *message) {
   emails_.push_back(message);

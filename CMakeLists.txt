@@ -5,4 +5,4 @@ project(desafio-3)
 set(CMAKE_CXX_STANDARD 17)
 
 # Create an executable named desafio with our files.
-add_executable(desafio3 main.cpp Msg.cpp EmailMsg.cpp TextMsg.cpp MsgManager.cpp User.cpp)
+add_executable(desafio3 main.cpp source/Msg.cpp source/EmailMsg.cpp source/TextMsg.cpp source/MsgManager.cpp source/User.cpp)

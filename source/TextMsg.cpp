@@ -1,4 +1,4 @@
-#include "TextMsg.h"
+#include "../include/TextMsg.h"
 
 int TextMsg::number_of_texts_ = 50;
 

@@ -1,4 +1,4 @@
-#include "EmailMsg.h"
+#include "../include/EmailMsg.h"
 
 int EmailMsg::number_of_mails_ = 0;
 

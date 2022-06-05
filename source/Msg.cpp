@@ -1,4 +1,4 @@
-#include "Msg.h"
+#include "../include/Msg.h"
 
 Msg::Msg(const std::string &body) : body_(body) {}
 
