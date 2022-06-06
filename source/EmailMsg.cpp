@@ -40,11 +40,31 @@ const Msg::MsgType EmailMsg::GetType() {
 
 //Setters
 void EmailMsg::SetSrcMail(const std::string& src_mail) {
-  src_mail_ = src_mail;
+
+  int pos_1=src_mail.find('@');
+  int pos_2=src_mail.find(".pt");
+  int pos_3=src_mail.find(".com");
+
+  if ( pos_1>0 && (pos_2>0 || pos_3>0) ){
+
+    src_mail_ = src_mail;
+
+  }
+
 }
 
 void EmailMsg::SetDstMail(const std::string& dst_mail) {
-  dst_mail_ = dst_mail;
+
+  int pos_1=src_mail.find('@');
+  int pos_2=src_mail.find(".pt");
+  int pos_3=src_mail.find(".com");
+
+  if ( pos_1>0 && (pos_2>0 || pos_3>0) ){
+
+    dst_mail_ = dst_mail;
+
+  }
+
 }
 
 //Operators

@@ -24,11 +24,27 @@ void User::SetName(const std::string& name) {
 }
 
 void User::SetEmail(const std::string& email) {
-  email_ = email;
+
+  int pos_1=email.find('@');
+  int pos_2=email.find(".pt");
+  int pos_3=email.find(".com");
+
+  if ( pos_1>0 && (pos_2>0 || pos_3>0) ){
+
+    email_ = email;
+
+  }
+
 }
 
 void User::SetMobile(const std::string& mobile) {
-  mobile_ = mobile;
+
+  int pos=mobile.find("+351");
+
+  if (pos>0 && mobile.size()==13){
+    mobile_ = mobile;
+  }
+
 }
 
 //Operators
