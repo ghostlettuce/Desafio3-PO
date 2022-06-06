@@ -14,15 +14,11 @@ void Msg::SetBody(const std::string& body) {
   MsgType a = this->GetType();
   if (this->GetType() == Mobile) {
       if (body.length() > 40) {
-          throw "ERROR: TextMsg::TextMsg - invalid Text Message Body too long";
-      }
-      
-      try {
+          throw std::invalid_argument("TextMsg::TextMsg - invalid Text Message Body too long");
+      } else {
           body_ = body;
-      } catch (const char* err_msg) {
-          std::cerr << err_msg << std::endl;
-          SetBody(body.substr(0, 40));
       }
+
   } else {
       body_ = body;
   }

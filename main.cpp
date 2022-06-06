@@ -22,6 +22,7 @@ int main() {
 
     Msg *m = new TextMsg("I love programming.", "+351234370555", "+351234370500");
     cout << m->GetType() << endl;
+
     cout << *m << endl; // print as a message
     TextMsg *mm = dynamic_cast<TextMsg*>(m);
     cout << *mm << endl << endl; // print as mobile message
@@ -37,7 +38,7 @@ int main() {
         cout << "ERROR: an email message is not a mobile message!" << endl << endl;
     }
 
-    User u;
+    /*User u;
     try{
         u.SetEmail("abc.xyz");
     }catch (invalid_argument const &e){
@@ -48,7 +49,7 @@ int main() {
         u.SetMobile("910123");
     }catch (invalid_argument const &e){
         cout << "ERROR: " << e.what() << endl << endl;
-    }
+    }*/
 
     try{
         m = new TextMsg("I love programming really, really, really  a lot.", "+351234370555", "+351234371254");
