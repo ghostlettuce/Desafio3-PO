@@ -30,6 +30,9 @@ public:
     void SetSrcMail(const std::string& src_mail);
     void SetDstMail(const std::string& dst_mail);
 
+    //Methods
+    std::string IsValidMail(const std::string& mail, const int& type);
+
     //Operators
     friend std::ostream& operator<<(std::ostream& os, const EmailMsg& msg);
     friend std::istream& operator>>(std::istream& is, EmailMsg& msg);

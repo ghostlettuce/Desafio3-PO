@@ -1,6 +1,6 @@
 #include "../include/EmailMsg.h"
 
-int EmailMsg::number_of_mails_ = 0;
+int EmailMsg::number_of_mails_ = 1;
 
 //Constructors
 EmailMsg::EmailMsg() {
@@ -13,8 +13,11 @@ EmailMsg::EmailMsg(const std::string& body)
 }
 
 EmailMsg::EmailMsg(const std::string& body, const std::string& src_mail, const std::string& dst_mail)
-    : Msg(body), src_mail_(src_mail), dst_mail_(dst_mail) {
-  id_ = number_of_mails_++;
+    : Msg(body) {
+    dst_mail_ = IsValidMail(dst_mail, 1);
+    src_mail_ = IsValidMail(src_mail, 0);
+
+    id_ = number_of_mails_++;
 }
 
 //Getters
@@ -40,31 +43,44 @@ const Msg::MsgType EmailMsg::GetType() {
 
 //Setters
 void EmailMsg::SetSrcMail(const std::string& src_mail) {
-
-  int pos_1=src_mail.find('@');
-  int pos_2=src_mail.find(".pt");
-  int pos_3=src_mail.find(".com");
-
-  if ( pos_1>0 && (pos_2>0 || pos_3>0) ){
-
-    src_mail_ = src_mail;
-
-  }
-
+    src_mail_ = IsValidMail(src_mail, 2);
 }
 
 void EmailMsg::SetDstMail(const std::string& dst_mail) {
+    dst_mail_ = IsValidMail(dst_mail, 3);
+}
 
-  int pos_1=src_mail.find('@');
-  int pos_2=src_mail.find(".pt");
-  int pos_3=src_mail.find(".com");
+//Methods
+std::string EmailMsg::IsValidMail(const std::string& mail, const int& type){
+    int pos_1=mail.find('@');
+    int pos_2=mail.find(".pt");
+    int pos_3=mail.find(".com");
 
-  if ( pos_1>0 && (pos_2>0 || pos_3>0) ){
+    if ( pos_1>0 && (pos_2>0 || pos_3>0) ){
+        return mail;
+    } else {
+        switch (type) {
+            case 0: // construtor src
+                throw std::invalid_argument("EmailMsg::EmailMsg - invalid src_email address");
+                break;
 
-    dst_mail_ = dst_mail;
+            case 1: // construtor dst
+                throw std::invalid_argument("EmailMsg::EmailMsg - invalid dst_email address");
+                break;
 
-  }
+            case 2: // set src
+                throw std::invalid_argument("EmailMsg::SetSrcMail - invalid src_email address");
+                break;
 
+            case 3: // set dst
+                throw std::invalid_argument("EmailMsg::SetDstMail - invalid dst_email address");
+                break;
+
+            default:
+                throw std::invalid_argument("Oopsi");
+                break;
+        }
+    }
 }
 
 //Operators
