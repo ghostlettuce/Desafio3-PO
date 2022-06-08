@@ -7,6 +7,7 @@ User MsgManager::GetUser(const std::string& mobile) const {
             return u;
         }
     }
+    return {};
 }
 
 //Methods
@@ -16,26 +17,9 @@ void MsgManager::AddMsg(Msg *msg){
 
 
 void MsgManager::AddUser(const User& user) {
-  users_[user.GetEmail()] = user;
+  users_.push_back(user);
 }
 
-void MsgManager::SaveToFile(const std::string& filename) {
-  std::ofstream file(filename);
-
-  for (auto[email, user] : users_) {
-    file << "user " << user.GetName() << " " << user.GetMobile() << " " << user.GetEmail() << std::endl;
-  }
-
-  for (const auto& email : emails_) {
-    file << "email " << email->GetSrcMail() << " " << email->GetDstMail() << " " << email->GetBody() << std::endl;
-  }
-
-  for (const auto& text : texts_) {
-    file << "text " << text->GetSrcPhoneNo() << " " << text->GetDstPhoneNo() << " " << text->GetBody() << std::endl;
-  }
-
-  file.close();
-}
 
 double MsgManager::TextAverageSize() const {
   double sum = 0.0;
@@ -52,6 +36,40 @@ void MsgManager::ChangeMobile(const User& user, const std::string& new_mobile){
             u.SetMobile(new_mobile);
         }
     }
+}
+
+void MsgManager::saveOnFileFilter(){
+    std::string file, field;
+    int opt;
+
+    std::cout << "-- Save on File with Filters --" << std::endl << std::endl;
+
+    std::cout << "File name: ";
+    std::cin >> file;
+
+    std::cout << "opt = 1: print the list of emails sent to a given email address: each line contains the information "
+                 "about the sender and the text of the corresponding email;" << std::endl;
+
+    std::cout << "opt = 2: print the list of emails sent by a given email address: each line contains the information "
+                 "about the receiver and the text of the corresponding email;" << std::endl;
+
+    std::cout << "opt = 3: print the list of mobile messages sent to a given phone number: each line contains the name "
+                 "about the sender and the text of the corresponding message;" << std::endl;
+
+    std::cout << "opt = 4: print the list of mobile messages received by a given phone number: each line contains the "
+                 "name of the sender and the text of the corresponding message." << std::endl;
+
+    std::cout << "Option: ";
+    std::cin >> opt;
+
+    std::cout << "Field of search: ";
+    std::cin >> field;
+
+    saveOnFileFilter(file, opt, field);
+}
+
+void MsgManager::saveOnFileFilter(const std::string& file, const int& opt,const std::string& field){
+
 }
 
 //Operators

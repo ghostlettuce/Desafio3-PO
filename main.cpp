@@ -90,10 +90,10 @@ int main() {
     m.AddMsg(new TextMsg("I love programming.", "+351234370555", "+351234234234"));
     cout << m << endl;
 
-    m.saveOnFileFilter("../m1.txt",1,"maria@ua.pt");
-    m.saveOnFileFilter("../m2.txt",2,"ana@ua.pt");
-    m.saveOnFileFilter("../m3.txt",3,"+351234370500");
-    m.saveOnFileFilter("../m4.txt",4,"+351234370555");
+    m.saveOnFileFilter("../documents/m1.txt",1,"maria@ua.pt");
+    m.saveOnFileFilter("../documents/m2.txt",2,"ana@ua.pt");
+    m.saveOnFileFilter("../documents/m3.txt",3,"+351234370500");
+    m.saveOnFileFilter("../documents/m4.txt",4,"+351234370555");
 
     User u = m.GetUser("+351234370500");
     cout << u << endl;

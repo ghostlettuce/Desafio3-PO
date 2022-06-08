@@ -20,7 +20,7 @@ class MsgManager {
 
 private:
     std::vector<User> users_;
-    std::vector <Msg *> messages_;
+    std::vector<Msg *> messages_;
 
 public:
     //Constructors
@@ -35,8 +35,9 @@ public:
     //Methods
     void AddMsg(Msg* message);
     void AddUser(const User& user);
-    void SaveToFile(const std::string& filename);
     void ChangeMobile(const User& u, const std::string& new_mobile);
+    void saveOnFileFilter();
+    void saveOnFileFilter(const std::string& file, const int& opt,const std::string& field);
 
     // Statistic methods.
     [[nodiscard]] double TextAverageSize() const;
