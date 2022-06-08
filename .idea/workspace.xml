@@ -22,7 +22,6 @@
   <component name="ChangeListManager">
     <list default="true" id="99672a20-cab4-4209-a3c4-764a3ac1faa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/MsgManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/MsgManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/MsgManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/source/MsgManager.cpp" afterDir="false" />
     </list>
@@ -37,6 +36,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

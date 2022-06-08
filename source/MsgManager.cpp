@@ -1,54 +1,10 @@
 #include "../include/MsgManager.h"
 
-//Destructor
-//the class must guarantee the release of this memory when the
-//management system is destroyed
-MsgManager::~MsgManager(){
-
-delete [] messages_;
-
-    while (!messages_.empty()){
-
-        delete[] messages_;
-
-        delete messages_.back();
-        messages_.pop_back();
-
-    }
-
-
-}
-
-
 //Getters
 
 //Methods
-
-void MsgManager::ToVector(EmailMsg message){
-    messages_.push_back(message);
-
-}
-void MsgManager::ToVector(TextMsg message){
-    messages_.push_back(message);
-}
-
-
-
-/*
-
-void MsgManager::AddEmailMsg(EmailMsg *message) {
-  emails_.push_back(message);
-}
-
-void MsgManager::AddTextMsg(TextMsg *message) {
-  texts_.push_back(message);
-}
- */
-
-
 void MsgManager::AddMsg(Msg *msg){
-
-
+    messages_.push_back(msg);
 }
 
 
