@@ -1,6 +1,13 @@
 #include "../include/MsgManager.h"
 
 //Getters
+User MsgManager::GetUser(const std::string& mobile) const {
+    for(auto u : users_){
+        if (u.GetMobile() == mobile){
+            return u;
+        }
+    }
+}
 
 //Methods
 void MsgManager::AddMsg(Msg *msg){
@@ -37,6 +44,14 @@ double MsgManager::TextAverageSize() const {
   }
 
   return sum / texts_.size();
+}
+
+void MsgManager::ChangeMobile(const User& user, const std::string& new_mobile){
+    for(auto u : users_){
+        if (u.GetMobile() == user.GetMobile()){
+            u.SetMobile(new_mobile);
+        }
+    }
 }
 
 //Operators

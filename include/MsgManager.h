@@ -19,7 +19,7 @@
 class MsgManager {
 
 private:
-    std::map<std::string, User> users_;
+    std::vector<User> users_;
     std::vector <Msg *> messages_;
 
 public:
@@ -30,12 +30,13 @@ public:
     ~MsgManager() = default;
 
     //Getters
-    [[nodiscard]] User GetUser(std::string& mobile) const;
+    [[nodiscard]] User GetUser(const std::string& mobile) const;
 
     //Methods
     void AddMsg(Msg* message);
     void AddUser(const User& user);
     void SaveToFile(const std::string& filename);
+    void ChangeMobile(const User& u, const std::string& new_mobile);
 
     // Statistic methods.
     [[nodiscard]] double TextAverageSize() const;
