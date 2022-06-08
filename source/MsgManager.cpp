@@ -65,10 +65,33 @@ void MsgManager::saveOnFileFilter(){
     std::cout << "Field of search: ";
     std::cin >> field;
 
+    if (opt<1 || opt>4){
+        throw std::invalid_argument ("MsgManager::SaveOnFileFilter - option not valid");
+        return;
+    }
     saveOnFileFilter(file, opt, field);
 }
 
 void MsgManager::saveOnFileFilter(const std::string& file, const int& opt,const std::string& field){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
