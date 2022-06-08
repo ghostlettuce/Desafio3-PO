@@ -93,6 +93,7 @@ void MsgManager::saveOnFileFilter(const std::string& file, const int& opt,const 
 
 
 
+
 }
 
 //Operators
