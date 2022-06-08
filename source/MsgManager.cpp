@@ -1,13 +1,21 @@
 #include "../include/MsgManager.h"
 
 //Getters
-User MsgManager::GetUser(const std::string& mobile) const {
-    for(auto u : users_){
-        if (u.GetMobile() == mobile){
-            return u;
+User MsgManager::GetUser(const std::string& field) const {
+
+    if(field.at(0) == '+') {
+        for (auto u: users_) {
+            if (u.GetMobile() == field) {
+                return u;
+            }
+        }
+    } else {
+        for (auto u: users_) {
+            if (u.GetEmail() == field) {
+                return u;
+            }
         }
     }
-    return {};
 }
 
 //Methods
@@ -72,29 +80,74 @@ void MsgManager::saveOnFileFilter(){
     saveOnFileFilter(file, opt, field);
 }
 
-void MsgManager::saveOnFileFilter(const std::string& file, const int& opt,const std::string& field){
+void MsgManager::saveOnFileFilter(const std::string& file, const int& opt,const std::string& field) {
+
+    std::ofstream fo(file);
+
+    User user = GetUser(field);
+
+    switch (opt){
+
+        case 1:
+
+            fo << "Emails sent to" << user.GetName() << " +++ " << field << " *** " << user.GetMobile() << std::endl;
+
+            for (auto m : messages_) {
+
+                EmailMsg *em = dynamic_cast<EmailMsg *>(m);
+                if (em->GetType() == Msg::Email && em->GetDstMail() == field) {
+                    fo << "    " << GetUser(em->GetSrcMail()).GetName() << " +++ " << em->GetSrcMail() << " *** "
+                       << GetUser(em->GetSrcMail()).GetMobile() << " -> " << em->GetBody();
+                }
+            }
+            break;
+
+        case 2:
+
+            fo << "Emails sent by" << user.GetName() << " +++ " << field << " *** " << user.GetMobile() << std::endl;
+
+                for (auto m : messages_) {
+
+                    EmailMsg *em = dynamic_cast<EmailMsg *>(m);
+                    if (em->GetType() == Msg::Email && em->GetSrcMail() == field) {
+                        fo << "    " << GetUser(em->GetDstMail()).GetName() << " +++ " << em->GetDstMail() << " *** "
+                           << GetUser(em->GetDstMail()).GetMobile() << " -> " << em->GetBody();
+                    }
+                }
+                break;
+
+        case 3:
+
+            fo << "Text messages sent to" << user.GetName() << " +++ " << user.GetEmail()<< " *** " << field << std::endl;
+
+            for (auto m : messages_) {
+
+                TextMsg *tm = dynamic_cast<TextMsg *>(m);
+                if (tm->GetType() == Msg::Mobile && tm->GetSrcPhoneNo() == field) {
+                    fo << "    " << GetUser(tm->GetSrcPhoneNo()).GetName() << " +++ " << GetUser(tm->GetSrcPhoneNo()).GetEmail()<< " *** "
+                       << tm->GetSrcPhoneNo()<< " -> " << tm->GetBody();
+                }
+            }
+            break;
+
+        case 4:
+            fo << "Text messages sent by" << user.GetName() << " +++ " << field << " *** " << user.GetMobile() << std::endl;
+
+            for (auto m : messages_) {
+
+                TextMsg *tm = dynamic_cast<TextMsg *>(m);
+                if (tm->GetType() == Msg::Email && tm->GetDstPhoneNo() == field) {
+                    fo << "    " << GetUser(tm->GetDstPhoneNo()).GetName() << " +++ " << GetUser(tm->GetDstPhoneNo()).GetEmail() << " *** "
+                       << tm->GetDstPhoneNo() << " -> " << tm->GetBody();
+                }
+            }
+            break;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 }
+
 
 //Operators
 std::ostream& operator<<(std::ostream& os, const MsgManager& manager) {

@@ -32,6 +32,7 @@ public:
     //Getters
     [[nodiscard]] User GetUser(const std::string& mobile) const;
 
+
     //Methods
     void AddMsg(Msg* message);
     void AddUser(const User& user);
