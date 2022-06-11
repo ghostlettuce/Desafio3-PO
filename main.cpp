@@ -105,7 +105,7 @@ void Part3(){
     cout << endl << "*** Part 3 ***" << endl;
     MsgManager m;
 
-    m.loadLoadMessagesFromFile("../messages01.txt");
+    m.LoadMessagesFromFile("../messages01.txt");
 
     cout << m << endl;
 }*/

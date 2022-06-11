@@ -149,6 +149,52 @@ void MsgManager::saveOnFileFilter(const std::string& file, const int& opt,const 
 }
 
 
+void MsgManager::LoadMessagesFromFile(const std::string &filename){
+    std::string file_entry;
+    std::vector<std::string> file_entry_separeted;
+
+    std::ifstream file (filename);
+
+    while (file.good()) {
+        std::getline(file, file_entry);
+        file_entry_separeted = CharSeparated(file_entry, " ");
+
+        if (file_entry_separeted.at(0) == "user") {
+
+            users_.push_back( User(file_entry_separeted.at(1), file_entry_separeted.at(3),  file_entry_separeted.at(2))  );
+
+        } else if (file_entry_separeted.at(0) == "mobile") {
+            messages_.push_back( new TextMsg(file_entry_separeted.at(3), file_entry_separeted.at(1), file_entry_separeted.at(2)) );
+
+        } else {
+            messages_.push_back( new EmailMsg(file_entry_separeted.at(3), file_entry_separeted.at(1), file_entry_separeted.at(2)) );
+        }
+
+    }
+
+    file.close();
+
+}
+
+
+std::vector<std::string> MsgManager::CharSeparated(const std::string &initial_str, const std::string &delimiter) {
+    size_t pos_start = 0, pos_end, delim_len = delimiter.length();
+    std::string token;
+    std::vector<std::string> res;
+
+    while ((pos_end = initial_str.find (delimiter, pos_start)) != std::string::npos) {
+        token = initial_str.substr (pos_start, pos_end - pos_start);
+        pos_start = pos_end + delim_len;
+        res.push_back (token);
+    }
+
+    res.push_back (initial_str.substr (pos_start));
+    return res;
+}
+
+
+
+
 //Operators
 std::ostream& operator<<(std::ostream& os, const MsgManager& manager) {
   os << "Users List (sorted by email):" << std::endl;

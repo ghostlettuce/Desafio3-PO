@@ -20,8 +20,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99672a20-cab4-4209-a3c4-764a3ac1faa9" name="Changes" comment="#7 done">
+    <list default="true" id="99672a20-cab4-4209-a3c4-764a3ac1faa9" name="Changes" comment="#6 -with bugs in other functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/MsgManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/MsgManager.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/MsgManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/source/MsgManager.cpp" afterDir="false" />
@@ -84,6 +85,7 @@
       <workItem from="1654530312739" duration="353000" />
       <workItem from="1654531199870" duration="2000" />
       <workItem from="1654692950861" duration="4212000" />
+      <workItem from="1654983314644" duration="2574000" />
     </task>
     <task id="LOCAL-00001" summary="#4 e #5 w/ bugs on other methods">
       <created>1654700207217</created>
@@ -99,7 +101,28 @@
       <option name="project" value="LOCAL" />
       <updated>1654701497224</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="#4 -not finhished">
+      <created>1654704073398</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654704073398</updated>
+    </task>
+    <task id="LOCAL-00004" summary="#6 -not finhished">
+      <created>1654704127372</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654704127372</updated>
+    </task>
+    <task id="LOCAL-00005" summary="#6 -with bugs in other functions">
+      <created>1654708689426</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1654708689426</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +142,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#4 e #5 w/ bugs on other methods" />
     <MESSAGE value="#7 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="#7 done" />
+    <MESSAGE value="#4 -not finhished" />
+    <MESSAGE value="#6 -not finhished" />
+    <MESSAGE value="#6 -with bugs in other functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="#6 -with bugs in other functions" />
   </component>
 </project>

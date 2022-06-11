@@ -43,6 +43,9 @@ public:
     // Statistic methods.
     [[nodiscard]] double TextAverageSize() const;
 
+    void LoadMessagesFromFile(const std::string &filename);
+    std::vector<std::string> CharSeparated(const std::string &initial_str, const std::string &delimiter)
+
     //Operators
     friend std::ostream &operator<<(std::ostream& os, const MsgManager& manager);
 
