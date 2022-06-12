@@ -31,7 +31,7 @@ const Msg::MsgType TextMsg::GetType() {
     return Mobile;
 }
 
-const int TextMsg::GetMaxLength(){
+int TextMsg::GetMaxLength(){
     return kMessageMaxLength;
 }
 

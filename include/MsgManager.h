@@ -30,7 +30,7 @@ public:
     ~MsgManager() = default;
 
     //Getters
-    [[nodiscard]] User GetUser(const std::string& mobile) const;
+    [[nodiscard]] const User& GetUser(const std::string& mobile) const;
 
 
     //Methods
@@ -44,7 +44,7 @@ public:
     [[nodiscard]] double TextAverageSize() const;
 
     void LoadMessagesFromFile(const std::string &filename);
-    std::vector<std::string> CharSeparated(const std::string &initial_str, const std::string &delimiter)
+    std::vector<std::string> CharSeparated(const std::string &initial_str);
 
     //Operators
     friend std::ostream &operator<<(std::ostream& os, const MsgManager& manager);

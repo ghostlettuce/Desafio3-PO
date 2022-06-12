@@ -24,16 +24,16 @@ int main() {
     cout << m->GetType() << endl;
 
     cout << *m << endl; // print as a message
-    TextMsg *mm = dynamic_cast<TextMsg*>(m);
+    auto *mm = dynamic_cast<TextMsg*>(m);
     cout << *mm << endl << endl; // print as mobile message
 
     m = new EmailMsg("I am ready :-)", "a@ua.pt", "m@ua.pt");
     cout << m->GetType() << endl;
     cout << *m << endl;
-    EmailMsg *em = dynamic_cast<EmailMsg*>(m);
+    auto *em = dynamic_cast<EmailMsg*>(m);
     cout << *em << endl << endl;
 
-    TextMsg *ptr = dynamic_cast<TextMsg*>(m);
+    auto *ptr = dynamic_cast<TextMsg*>(m);
     if(ptr == nullptr){
         cout << "ERROR: an email message is not a mobile message!" << endl << endl;
     }
@@ -65,12 +65,12 @@ int main() {
 
     cout << *m << endl; // old m pointer
 
-    //Part2();
+    Part2();
 
-    //Part3();
+    Part3();
 }
 
-/*void Part2(){
+void Part2(){
     cout << endl << "*** Part 2 ***" << endl << endl;
     MsgManager m;
 
@@ -105,7 +105,7 @@ void Part3(){
     cout << endl << "*** Part 3 ***" << endl;
     MsgManager m;
 
-    m.LoadMessagesFromFile("../messages01.txt");
+    m.LoadMessagesFromFile("../documents/messages01.txt");
 
     cout << m << endl;
-}*/
+}

@@ -11,7 +11,6 @@ const std::string& Msg::GetBody() const {
 //Setters
 void Msg::SetBody(const std::string& body) {
 
-  MsgType a = this->GetType();
   if (this->GetType() == Mobile) {
       if (body.length() > 40) {
           throw std::invalid_argument("TextMsg::TextMsg - invalid Text Message Body too long");

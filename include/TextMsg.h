@@ -25,7 +25,7 @@ public:
     [[nodiscard]] const std::string& GetSrcPhoneNo() const;
     [[nodiscard]] const std::string& GetDstPhoneNo() const;
     [[nodiscard]] const MsgType GetType() override;
-    [[nodiscard]] static const int GetMaxLength();
+    [[nodiscard]] static int GetMaxLength();
     
     //Setters
     void SetSrcPhoneNo(const std::string& src_phone_no);

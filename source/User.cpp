@@ -46,15 +46,12 @@ std::string User::IsValidMail(const std::string& mail, const int& type){
         switch (type) {
             case 0: // construtor
                 throw std::invalid_argument("User::User - invalid email address");
-                break;
 
             case 1: // setter
                 throw std::invalid_argument("User::SetEmail - invalid email address");
-                break;
 
             default:
                 throw std::invalid_argument("Oopsi");
-                break;
         }
     }
 }
@@ -62,21 +59,18 @@ std::string User::IsValidMail(const std::string& mail, const int& type){
 std::string User::IsValidMobile(const std::string& mobile, const int& type){
     int pos=mobile.find("+351");
 
-    if (pos>0 && mobile.size()==13){
-        mobile_ = mobile;
+    if (pos>=0 && mobile.size()==13){
+        return mobile;
     } else {
         switch (type) {
-            case 0: // construtor
+            case 0: // constructor
                 throw std::invalid_argument("User::User - invalid number");
-                break;
 
             case 1: // setter
                 throw std::invalid_argument("User::SetMobile - invalid number");
-                break;
 
             default:
                 throw std::invalid_argument("Oopsi");
-                break;
         }
     }
 }

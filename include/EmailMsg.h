@@ -31,7 +31,7 @@ public:
     void SetDstMail(const std::string& dst_mail);
 
     //Methods
-    std::string IsValidMail(const std::string& mail, const int& type);
+    std::string static IsValidMail(const std::string& mail, const int& type);
 
     //Operators
     friend std::ostream& operator<<(std::ostream& os, const EmailMsg& msg);

@@ -62,23 +62,18 @@ std::string EmailMsg::IsValidMail(const std::string& mail, const int& type){
         switch (type) {
             case 0: // construtor src
                 throw std::invalid_argument("EmailMsg::EmailMsg - invalid src_email address");
-                break;
 
             case 1: // construtor dst
                 throw std::invalid_argument("EmailMsg::EmailMsg - invalid dst_email address");
-                break;
 
             case 2: // set src
                 throw std::invalid_argument("EmailMsg::SetSrcMail - invalid src_email address");
-                break;
 
             case 3: // set dst
                 throw std::invalid_argument("EmailMsg::SetDstMail - invalid dst_email address");
-                break;
 
             default:
                 throw std::invalid_argument("Oopsi");
-                break;
         }
     }
 }
