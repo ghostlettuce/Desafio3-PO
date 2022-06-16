@@ -38,7 +38,6 @@ public:
     void ChangeMobile(const User& u, const std::string& new_mobile);
     void saveOnFileFilter();
     void saveOnFileFilter(const std::string& file, const int& opt,const std::string& field);
-    void SortEmails();
 
     // Statistic methods.
     [[nodiscard]] double TextAverageSize() const;

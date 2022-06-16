@@ -33,6 +33,8 @@ public:
     //Operators
     friend std::ostream& operator<<(std::ostream& os, const User& user);
     friend std::istream& operator>>(std::istream& os, User& user);
+
+    bool operator < (const User& user) const;
 };
 
 #endif  // OOP_CLASSES_USER_H

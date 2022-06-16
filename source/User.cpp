@@ -86,3 +86,6 @@ std::istream& operator>>(std::istream& is, User& user) {
   return is;
 }
 
+bool User::operator < (const User& user) const{
+    return (email_ < user.email_);
+}

@@ -25,9 +25,9 @@ void MsgManager::AddMsg(Msg *msg){
     messages_.push_back(msg);
 }
 
-
 void MsgManager::AddUser(const User& user) {
   users_.push_back(user);
+  std::sort(users_.begin(), users_.end());
 }
 
 double MsgManager::TextAverageSize() const {
