@@ -52,11 +52,11 @@ void EmailMsg::SetDstMail(const std::string& dst_mail) {
 
 //Methods
 std::string EmailMsg::IsValidMail(const std::string& mail, const int& type){
-    int pos_1=mail.find('@');
-    int pos_2=mail.find(".pt");
-    int pos_3=mail.find(".com");
+    int pos_1 = mail.find('@');
+    int pos_2 = mail.find(".pt");
+    int pos_3 = mail.find(".com");
 
-    if ( pos_1>0 && (pos_2>0 || pos_3>0) ){
+    if (pos_1 > 0 && (pos_2 > 0 || pos_3 > 0)){
         return mail;
     } else {
         switch (type) {
@@ -73,7 +73,7 @@ std::string EmailMsg::IsValidMail(const std::string& mail, const int& type){
                 throw std::invalid_argument("EmailMsg::SetDstMail - invalid dst_email address");
 
             default:
-                throw std::invalid_argument("Oopsi");
+                throw std::invalid_argument("EmailMsg - invalid address");
         }
     }
 }

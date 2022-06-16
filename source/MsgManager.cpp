@@ -4,21 +4,20 @@
 const User& MsgManager::GetUser(const std::string& field) const {
 
     if(field.at(0) == '+') {
-        for (auto u: users_) {
+        for (auto& u: users_) {
             if (u.GetMobile() == field) {
-
                 return u;
             }
         }
     } else {
-        for (auto u: users_) {
+        for (auto& u: users_) {
             if (u.GetEmail() == field) {
                 return u;
             }
         }
     }
 
-    return {};
+    //return  NULL;
 }
 
 //Methods
@@ -30,7 +29,6 @@ void MsgManager::AddMsg(Msg *msg){
 void MsgManager::AddUser(const User& user) {
   users_.push_back(user);
 }
-
 
 double MsgManager::TextAverageSize() const {
     double sum = 0.0;
@@ -47,7 +45,7 @@ double MsgManager::TextAverageSize() const {
 }
 
 void MsgManager::ChangeMobile(const User& user, const std::string& new_mobile){
-    for(auto u : users_){
+    for(auto& u : users_){
         if (u.GetMobile() == user.GetMobile()){
             u.SetMobile(new_mobile);
             return;
@@ -180,22 +178,21 @@ void MsgManager::LoadMessagesFromFile(const std::string &filename){
 
         if (file_entry_separeted.at(0) == "user") {
 
-            users_.push_back(
-                    User(file_entry_separeted.at(1), file_entry_separeted.at(2), file_entry_separeted.at(3)));
+            AddUser(User(file_entry_separeted.at(1), file_entry_separeted.at(2),
+                         file_entry_separeted.at(3)));
 
         } else if (file_entry_separeted.at(0) == "mobile") {
-            messages_.push_back(new TextMsg(file_entry_separeted.at(3), file_entry_separeted.at(1),
+            AddMsg(new TextMsg(file_entry_separeted.at(3), file_entry_separeted.at(1),
                                             file_entry_separeted.at(2)));
 
         } else if (file_entry_separeted.at(0) == "email"){
-            messages_.push_back(new EmailMsg(file_entry_separeted.at(3), file_entry_separeted.at(1),
+            AddMsg(new EmailMsg(file_entry_separeted.at(3), file_entry_separeted.at(1),
                                              file_entry_separeted.at(2)));
         }
 
     }
 
     file.close();
-
 }
 
 std::vector<std::string> MsgManager::CharSeparated(const std::string &initial_str) {
@@ -213,7 +210,6 @@ std::vector<std::string> MsgManager::CharSeparated(const std::string &initial_st
 
     pos_end = initial_str.find ("\r", pos_start);
     token = initial_str.substr (pos_start, pos_end - pos_start);
-    pos_start = pos_end + delim_len;
     res.push_back (token);
 
     return res;
