@@ -36,11 +36,18 @@ void User::SetMobile(const std::string& mobile) {
 
 //Method
 std::string User::IsValidMail(const std::string& mail, const int& type){
-    int pos_1=mail.find('@');
-    int pos_2=mail.find(".pt");
-    int pos_3=mail.find(".com");
+    int pos_at = mail.find('@');
+    int pos_at2 = mail.find('@', pos_at + 1);
 
-    if ( pos_1>0 && (pos_2>0 || pos_3>0) ){
+    int pos_pt = mail.find(".pt");
+    int pos_pt2 = mail.find(".pt", pos_pt + 1);
+
+    int pos_com = mail.find(".com");
+    int pos_com2 = mail.find(".com", pos_com + 1);
+
+    int s = size(mail);
+
+    if ( pos_at > 0 && (s - 3 == pos_pt) || (s - 4 == pos_com) && (pos_at2 + pos_pt2 + pos_com2) < 0 ){
         return mail;
     } else {
         switch (type) {
